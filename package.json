@@ -1,19 +1,21 @@
 {
-  "name": "bj-backend",
+  "name": "brewscanservice",
   "version": "1.0.0",
-  "description": "The backend of The Brew Judge using Microservice Architecture",
+  "description": "The Scan microservice for the brew judge",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Kenneth Carroll",
+  "author": "",
   "license": "ISC",
   "dependencies": {
+    "@google-cloud/vision": "^2.1.2",
+    "body-parser": "^1.19.0",
     "express": "^4.17.1"
   },
   "devDependencies": {
     "dotenv": "^8.2.0",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.6"
   }
 }

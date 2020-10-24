@@ -1,13 +1,20 @@
 const express = require('express');
-
-// allows reading of environment from the .env file
 const dotenv = require('dotenv');
+const bodyParser = require('body-parser');
+const mainRouter = require('./routes/main-routes');
+const scanRouter = require('./routes/scan-route');
 
-// loads variables
 dotenv.config();
 
-// initializes the express app
-const app = express();
+const app = new express();
 
-// starts the application 
+app.use(bodyParser.json({ limit: "50mb" }));
+
+app.use(bodyParser.urlencoded({ limit: "50mb", extended: true, parameterLimit: 50000 }));
+
+
+app.use('/scan', scanRouter);
+
+app.use('/', mainRouter);
+
 app.listen(process.env.PORT);
